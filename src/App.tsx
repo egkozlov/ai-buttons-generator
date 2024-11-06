@@ -3,19 +3,21 @@ import styles from './App.module.css';
 import { ButtonDetails, useGenerateButton } from './useGenerateButton';
 import { ButtonDetailsForm } from './ButtonDetailsForm/ButtonDetailsForm';
 import { ButtonPreview } from './ButtonPreview/ButtonPreview';
+import { Header } from './Header/Header';
 
 export const App = () => {
   const [buttonHtml, setButtonHtml] = useState('');
-  const { generateButton,isGenerating } = useGenerateButton();
+  const { generateButton, isGenerating } = useGenerateButton();
   const handleOnSubmit = async (params: ButtonDetails) => {
     const button = await generateButton(params);
     setButtonHtml(button);
   };
 
   return (
-    <div className={styles.App}>
+    <div className={styles.mainContainer}>
+      <Header />
       <ButtonDetailsForm isGenerating={isGenerating} onSubmit={handleOnSubmit} />
-      {buttonHtml ? <ButtonPreview buttonHtml={buttonHtml} /> : null}
+      <ButtonPreview buttonHtml={buttonHtml} isGenerating={isGenerating} />
     </div>
   );
 }

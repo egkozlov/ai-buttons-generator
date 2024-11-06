@@ -1,6 +1,7 @@
-.App {
+.mainContainer {
   display: flex;
   flex-direction: column;
   align-items: center;  
-  padding: 40px;
+  padding: 16px;
+  gap: 20px;
 }

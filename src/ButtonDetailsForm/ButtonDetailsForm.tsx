@@ -20,9 +20,26 @@ export const ButtonDetailsForm = ({ onSubmit, isGenerating }: Props) => {
 
   return (
     <form className={styles.form} onSubmit={handleOnSubmit} autoComplete="off">
-      <TextInput id="color" name="color" label="Color" disabled={isGenerating} />
-      <TextInput id="size" name="size" label="Size" disabled={isGenerating} />
-      <TextInput id="text" name="text" label="Text" disabled={isGenerating} />
+      <TextInput
+        id="color"
+        name="color"
+        label="Color"
+        disabled={isGenerating}
+        placeholder='e.g. "sky blue" or "#E51BFC"'
+      />
+      <TextInput
+        id="size"
+        name="size"
+        label="Size"
+        disabled={isGenerating}
+        placeholder='e.g. "medium" or "16px"' />
+      <TextInput
+        id="text"
+        name="text"
+        label="Text"
+        disabled={isGenerating}
+        placeholder='e.g. "Click Me"'
+      />
       <Button label="Generate button" disabled={isGenerating} />
     </form>
   );
