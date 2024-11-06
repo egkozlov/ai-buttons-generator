@@ -10,7 +10,7 @@ type Props = {
 };
 
 export const ButtonDetailsForm = ({ onSubmit, generationStatus }: Props) => {
-  const [isSimplifiedView, setIsSimplifiedView] = useState(false);
+  const [isSimplifiedMode, setIsSimplifiedMode] = useState(false);
 
   const handleOnSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -20,7 +20,7 @@ export const ButtonDetailsForm = ({ onSubmit, generationStatus }: Props) => {
     const text = data.get('text')?.toString() || '';
     const style = data.get('style')?.toString() || '';
 
-    const buttonDetails = isSimplifiedView
+    const buttonDetails = isSimplifiedMode
       ? [
         { attribute: Attribute.style, value: style },
         { attribute: Attribute.text, value: text }
@@ -36,16 +36,16 @@ export const ButtonDetailsForm = ({ onSubmit, generationStatus }: Props) => {
 
   const isDisabled = generationStatus === GenerationStatus.InProgress;
   const handleSimplifiedOnChange = () => {
-    setIsSimplifiedView(!isSimplifiedView);
+    setIsSimplifiedMode(!isSimplifiedMode);
   }
 
   return (
     <form className={styles.form} onSubmit={handleOnSubmit} autoComplete="off">
       <label>
-        <input checked={isSimplifiedView} onChange={handleSimplifiedOnChange} id="simplified-view" name="simplified-view" type="checkbox" />
-        Simplified view
+        <input checked={isSimplifiedMode} onChange={handleSimplifiedOnChange} id="simplified-view" name="simplified-view" type="checkbox" />
+        Simplified Mode
       </label>
-      {isSimplifiedView ?
+      {isSimplifiedMode ?
         <TextInput
           id="style"
           name="style"
