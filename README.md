@@ -38,6 +38,20 @@ To run the **Buttons Generator** app locally:
 	*	Simplified Mode: By clicking `Simplified Mode` checkbox you can select a style descriptor such as `modern` or `cute` to apply a popular button style without choosing specific color and size.
 4.	Click `Generate` to generate a styled HTML button based on your input
 5.	The generated button will appear in the preview section
+### Demo desktop
+
+
+https://github.com/user-attachments/assets/49d67115-aa03-46bd-bd88-91528878fc2b
+
+
+### Demo mobile
+
+
+
+https://github.com/user-attachments/assets/cb7274f1-2adb-4ffe-b3c7-c5267233b2e8
+
+
+
 
 
 ## Examples
@@ -67,6 +81,8 @@ Or, try **Simplified Mode** to apply an overall style without specifying exact c
   **Text**: `"Join Now"`
 
 In **Simplified Mode**, each style descriptor will apply a cohesive, popular design style, giving you a quick and visually appealing button without needing to specify color or size details.
+
+
 
 ## Bonuses
 
