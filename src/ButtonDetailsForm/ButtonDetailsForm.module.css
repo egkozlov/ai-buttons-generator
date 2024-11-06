@@ -9,3 +9,9 @@
   border: 1px solid rgb(24, 24, 27);
   border-radius: 16px;
 }
+
+.errorMessage {
+  color: #D0021B;
+  font-size: 14px;
+  margin: 0;
+}

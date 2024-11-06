@@ -11,6 +11,7 @@ type Props = {
 
 export const ButtonDetailsForm = ({ onSubmit, generationStatus }: Props) => {
   const [isSimplifiedMode, setIsSimplifiedMode] = useState(false);
+  const [isSomeFieldEmpty, setIsSomeFieldEmpty] = useState(false);
 
   const handleOnSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -31,7 +32,13 @@ export const ButtonDetailsForm = ({ onSubmit, generationStatus }: Props) => {
         { attribute: Attribute.text, value: text }
       ];
 
-    onSubmit(buttonDetails);
+
+    const someFieldsAreEmpty = buttonDetails.some(({ value }) => !value);
+    setIsSomeFieldEmpty(someFieldsAreEmpty);
+
+    if (!someFieldsAreEmpty) {
+      onSubmit(buttonDetails);
+    }
   };
 
   const isDisabled = generationStatus === GenerationStatus.InProgress;
@@ -80,6 +87,10 @@ export const ButtonDetailsForm = ({ onSubmit, generationStatus }: Props) => {
         placeholder='e.g. "Click Me"'
       />
       <Button label="Generate" disabled={isDisabled} />
+
+      {isSomeFieldEmpty
+        ? <p className={styles.errorMessage}>Make sure all fields are filled before submitting</p>
+        : null}
     </form>
   );
 }
