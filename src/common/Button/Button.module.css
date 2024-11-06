@@ -1,0 +1,23 @@
+.button {
+  background-color: rgb(24, 24, 27);
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  font-weight: 500;
+  box-sizing: border-box;
+  height: 40px;
+  line-height: 20px;
+  min-width: 40px;
+  padding: 16px;
+
+  &:focus {
+    outline-width: 2px;
+    outline-offset: 2px;
+    outline-style: solid;
+    outline-color: rgb(24, 24, 27);
+  }
+}
