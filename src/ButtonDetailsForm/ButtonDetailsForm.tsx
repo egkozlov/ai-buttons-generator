@@ -41,7 +41,7 @@ export const ButtonDetailsForm = ({ onSubmit, generationStatus }: Props) => {
         disabled={isDisabled}
         placeholder='e.g. "Click Me"'
       />
-      <Button label="Generate button" disabled={isDisabled} />
+      <Button label="Generate" disabled={isDisabled} />
     </form>
   );
 }

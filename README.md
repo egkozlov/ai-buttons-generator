@@ -1,46 +1,58 @@
-# Getting Started with Create React App
+# Buttons Generator
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Buttons Generator** is a simple React app that allows users to create custom HTML buttons with specified parameters like color, size, and text. The app leverages the OpenAI API to generate styled button HTML based on user input. With a few clicks, you can design a button that meets your visual needs.
 
-## Available Scripts
 
-In the project directory, you can run:
+## Installation
 
-### `npm start`
+To run the **Buttons Generator** app locally:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. Clone the repository
+    ```bash
+    git clone https://github.com/egkozlov/ai-buttons-generator.git
+    ```
+2. Install dependencies
+    ```bash
+    npm install
+    ```
+3. [Sign up](https://platform.openai.com/signup) at OpenAI and [create an API key](https://platform.openai.com/docs/quickstart) if you don't have it yet
+4. Create `.env.local` file at the root of the project and set there your OpenAI API key as follows
+    ```plaintext 
+    REACT_APP_OPENAI_API_KEY=your_api_key_here
+    ```
+4. Run the app:
+    ```bash
+    npm start
+    ```
+5. The app should be running on http://localhost:3000
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+## Usage
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1.	Make sure that you followed all steps from [Instalation](#installation) section
+2.	Open the app in your browser at http://localhost:3000
+3.	Enter the following inputs:
+    * Color: Enter a color name (e.g., `mint green`) or a hex code (e.g., `#FF5733`)
+    * Size: Specify a size term (e.g., `small`, `extra large`) or a specific unit (e.g., `20px`)
+    * Text: Type the text you’d like displayed on the button (e.g., `Submit`)
+4.	Click `Generate` to generate a styled HTML button based on your input
+5.	The generated button will appear in the preview section
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Examples
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Try the following inputs to see how the app interprets various descriptions:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Color**: `"sunset orange"`  
+  **Size**: `"extremely large"`  
+  **Text**: `"Click Here"`
 
-### `npm run eject`
+- **Color**: `"#2A9D8F"`  
+  **Size**: `"medium"`  
+  **Text**: `"Veeeeeeeeeeeery loooooooooong teext"`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- **Color**: `"very dark"`  
+  **Size**: `"width 100px, height 40px, font-size 20px"`   
+  **Text**: `"OK"`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Each example should produce a unique button style that matches your specified inputs
