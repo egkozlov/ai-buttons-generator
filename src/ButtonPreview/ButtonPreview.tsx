@@ -1,4 +1,4 @@
-import { GenerationStatus } from "../useGenerateButton";
+import { GenerationStatus } from "../consts";
 import styles from "./ButtonPreview.module.css";
 
 type Props = {

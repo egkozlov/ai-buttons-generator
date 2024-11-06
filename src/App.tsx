@@ -1,13 +1,14 @@
 import styles from './App.module.css';
-import { ButtonDetails, useGenerateButton } from './useGenerateButton';
+import { useGenerateButton } from './useGenerateButton';
 import { ButtonDetailsForm } from './ButtonDetailsForm/ButtonDetailsForm';
 import { ButtonPreview } from './ButtonPreview/ButtonPreview';
 import { Header } from './Header/Header';
+import { ButtonDetail } from './types';
 
 export const App = () => {
   const { buttonHtml, generateButton, generationStatus } = useGenerateButton();
 
-  const handleOnSubmit = async (params: ButtonDetails) => {
+  const handleOnSubmit = async (params: ButtonDetail[]) => {
     await generateButton(params);
   };
 
