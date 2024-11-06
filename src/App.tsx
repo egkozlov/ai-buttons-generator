@@ -7,7 +7,8 @@ import { Header } from './Header/Header';
 
 export const App = () => {
   const [buttonHtml, setButtonHtml] = useState('');
-  const { generateButton, isGenerating } = useGenerateButton();
+  const { generateButton, isGenerating, isGenerationFailed } = useGenerateButton();
+
   const handleOnSubmit = async (params: ButtonDetails) => {
     const button = await generateButton(params);
     setButtonHtml(button);
@@ -17,7 +18,11 @@ export const App = () => {
     <div className={styles.mainContainer}>
       <Header />
       <ButtonDetailsForm isGenerating={isGenerating} onSubmit={handleOnSubmit} />
-      <ButtonPreview buttonHtml={buttonHtml} isGenerating={isGenerating} />
+      <ButtonPreview
+        buttonHtml={buttonHtml}
+        isGenerating={isGenerating}
+        isGenerationFailed={isGenerationFailed}
+      />
     </div>
   );
 }
