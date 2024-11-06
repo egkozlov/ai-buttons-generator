@@ -44,7 +44,7 @@ To run the **Buttons Generator** app locally:
 
 Try the following inputs to see how the app interprets different descriptions in **Advanced Mode**:
 
-- **Color**: `"sunset orange"`  
+- **Color**: `"mint green"`  
   **Size**: `"extremely large"`  
   **Text**: `"Click Here"`
 
