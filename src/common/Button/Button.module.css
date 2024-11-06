@@ -20,4 +20,9 @@
     outline-style: solid;
     outline-color: rgb(24, 24, 27);
   }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 }

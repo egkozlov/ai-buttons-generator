@@ -25,4 +25,9 @@
   outline-color: rgb(9, 9, 11);
   padding: 12px;
   width: 100%;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 }

@@ -6,7 +6,7 @@ import { ButtonPreview } from './ButtonPreview/ButtonPreview';
 
 export const App = () => {
   const [buttonHtml, setButtonHtml] = useState('');
-  const { generateButton } = useGenerateButton();
+  const { generateButton,isGenerating } = useGenerateButton();
   const handleOnSubmit = async (params: ButtonDetails) => {
     const button = await generateButton(params);
     setButtonHtml(button);
@@ -14,7 +14,7 @@ export const App = () => {
 
   return (
     <div className={styles.App}>
-      <ButtonDetailsForm onSubmit={handleOnSubmit} />
+      <ButtonDetailsForm isGenerating={isGenerating} onSubmit={handleOnSubmit} />
       {buttonHtml ? <ButtonPreview buttonHtml={buttonHtml} /> : null}
     </div>
   );

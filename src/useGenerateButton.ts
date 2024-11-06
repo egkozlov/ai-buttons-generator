@@ -1,4 +1,5 @@
 import { OpenAI } from "openai";
+import { useState } from "react";
 
 const API_KEY = '';
 const openai = new OpenAI({
@@ -13,7 +14,10 @@ export type ButtonDetails = {
 };
 
 export const useGenerateButton = () => {
+  const [isGenerating, setIsGenerating] = useState(false);
+
   const generateButton = async ({ color, size, text }: ButtonDetails): Promise<string> => {
+    setIsGenerating(true);
     const prompt = `Generate a styled HTML button based on the following attributes:
         - Color: ${color} (interpret if vague; if hex or specific, apply directly).
         - Size: ${size} (interpret if vague or approximate to standard CSS sizes).
@@ -33,8 +37,10 @@ export const useGenerateButton = () => {
     } catch (error) {
       console.error("Error generating button HTML:", error);
       throw new Error("Error generating button");
+    } finally {
+      setIsGenerating(false);
     }
   };
 
-  return { generateButton };
+  return { generateButton, isGenerating };
 }
