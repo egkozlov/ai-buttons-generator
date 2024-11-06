@@ -1,12 +1,21 @@
-import React from 'react';
+import { useState } from 'react';
 import styles from './App.module.css';
+import { ButtonDetails, useGenerateButton } from './useGenerateButton';
+import { ButtonDetailsForm } from './ButtonDetailsForm/ButtonDetailsForm';
+import { ButtonPreview } from './ButtonPreview/ButtonPreview';
 
-function App() {
+export const App = () => {
+  const [buttonHtml, setButtonHtml] = useState('');
+  const { generateButton } = useGenerateButton();
+  const handleOnSubmit = async (params: ButtonDetails) => {
+    const button = await generateButton(params);
+    setButtonHtml(button);
+  };
+
   return (
     <div className={styles.App}>
-      Button generator
+      <ButtonDetailsForm onSubmit={handleOnSubmit} />
+      {buttonHtml ? <ButtonPreview buttonHtml={buttonHtml} /> : null}
     </div>
   );
 }
-
-export default App;
