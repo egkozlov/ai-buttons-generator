@@ -1,6 +1,6 @@
 import { FormEvent, useState } from "react";
 import styles from "./ButtonDetailsForm.module.css";
-import { TextInput, Button } from "../common";
+import { TextInput, Button, CheckboxInput } from "../common";
 import { ButtonDetail } from "../types";
 import { Attribute, GenerationStatus } from "../consts";
 
@@ -41,10 +41,13 @@ export const ButtonDetailsForm = ({ onSubmit, generationStatus }: Props) => {
 
   return (
     <form className={styles.form} onSubmit={handleOnSubmit} autoComplete="off">
-      <label>
-        <input checked={isSimplifiedMode} onChange={handleSimplifiedOnChange} id="simplified-view" name="simplified-view" type="checkbox" />
-        Simplified Mode
-      </label>
+      <CheckboxInput
+        id="simplified-view"
+        checked={isSimplifiedMode}
+        name="simplified-view"
+        label="Simplified Mode"
+        onChange={handleSimplifiedOnChange}
+      />
       {isSimplifiedMode ?
         <TextInput
           id="style"

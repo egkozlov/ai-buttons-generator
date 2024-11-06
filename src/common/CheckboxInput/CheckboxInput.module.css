@@ -1,0 +1,46 @@
+  .checkbox {
+    display: inline-block;
+    cursor: pointer;
+    color: rgb(9, 9, 11);
+    font-size: 16px;
+  }
+
+  .checkbox .box {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgb(9, 9, 11);
+    border-radius: 2px;
+    margin-bottom: -4px;
+    transition: all 0.35s ease;
+    margin-right: 4px;
+  }
+
+  .checkbox:hover .box {
+    border: 2px solid rgb(9, 9, 11);
+  }
+
+  .check {
+    display: none;
+  }
+
+  .check:checked+.box {
+    border: 2px solid rgb(9, 9, 11);
+    background: rgb(9, 9, 11);
+  }
+
+  .check:checked+.box::after {
+    content: "";
+    display: block;
+    width: 5px;
+    height: 10px;
+    border: 4px solid white;
+    border-width: 0 3px 3px 0;
+    border-radius: 1px;
+    transform: rotate(45deg);
+    margin-left: 4px;
+  }
+
+  .check:active+.box {
+    box-shadow: 0 0 4px rgb(9, 9, 11);
+  }
