@@ -1,14 +1,14 @@
 import { FormEvent } from "react";
-import { ButtonDetails } from "../useGenerateButton";
+import { ButtonDetails, GenerationStatus } from "../useGenerateButton";
 import styles from "./ButtonDetailsForm.module.css";
 import { TextInput, Button } from "../common";
 
 type Props = {
   onSubmit: (data: ButtonDetails) => void;
-  isGenerating?: boolean;
+  generationStatus: GenerationStatus;
 };
 
-export const ButtonDetailsForm = ({ onSubmit, isGenerating }: Props) => {
+export const ButtonDetailsForm = ({ onSubmit, generationStatus }: Props) => {
   const handleOnSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -17,6 +17,7 @@ export const ButtonDetailsForm = ({ onSubmit, isGenerating }: Props) => {
     const text = data.get('text')?.toString() || '';
     onSubmit({ color, size, text });
   };
+  const isDisabled = generationStatus === GenerationStatus.InProgress;
 
   return (
     <form className={styles.form} onSubmit={handleOnSubmit} autoComplete="off">
@@ -24,23 +25,23 @@ export const ButtonDetailsForm = ({ onSubmit, isGenerating }: Props) => {
         id="color"
         name="color"
         label="Color"
-        disabled={isGenerating}
+        disabled={isDisabled}
         placeholder='e.g. "sky blue" or "#E51BFC"'
       />
       <TextInput
         id="size"
         name="size"
         label="Size"
-        disabled={isGenerating}
+        disabled={isDisabled}
         placeholder='e.g. "medium" or "16px"' />
       <TextInput
         id="text"
         name="text"
         label="Text"
-        disabled={isGenerating}
+        disabled={isDisabled}
         placeholder='e.g. "Click Me"'
       />
-      <Button label="Generate button" disabled={isGenerating} />
+      <Button label="Generate button" disabled={isDisabled} />
     </form>
   );
 }

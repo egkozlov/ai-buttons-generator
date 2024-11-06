@@ -1,18 +1,18 @@
+import { GenerationStatus } from "../useGenerateButton";
 import styles from "./ButtonPreview.module.css";
 
 type Props = {
-  buttonHtml?: string;
-  isGenerating?: boolean;
-  isGenerationFailed?: boolean;
+  buttonHtml: string;
+  generationStatus: GenerationStatus;
 };
 
-export const ButtonPreview = ({ buttonHtml, isGenerating, isGenerationFailed }: Props) => {
+export const ButtonPreview = ({ buttonHtml, generationStatus }: Props) => {
   function getContent() {
-    if (isGenerating) {
+    if (generationStatus === GenerationStatus.InProgress) {
       return 'Generating your button...';
     }
 
-    if (isGenerationFailed) {
+    if (generationStatus === GenerationStatus.Failed) {
       return 'Oops, something went wrong. Please try again!'
     }
 
